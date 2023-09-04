@@ -1,0 +1,207 @@
+@font-face {
+    font-family: 'HankenGrotesk';
+    font-display: swap;
+    font-weight: 100 900;
+    src: url('assets/fonts/HankenGrotesk-VariableFont_wght.ttf') 
+         format('truetype');
+  }
+  
+  :root {
+    --clr-line-1: 0, 100%, 67%;   /*Light red*/
+    --clr-line-2: 39, 100%, 56%;  /*Orangey yellow*/
+    --clr-line-3: 166, 100%, 37%; /*Green teal*/
+    --clr-line-4: 234, 85%, 45%;  /*Cobalt blue*/
+
+    --clr-bg-first : 252, 100%, 67%; /*Light slate blue */
+    --clr-bg-second: 241, 81%, 54%;  /*Light royal blue*/
+    --gradient-primary: linear-gradient(
+        hsl(var(--clr-bg-first)), 
+        hsl(var(--clr-bg-second)));
+
+    --clr-bg-circle-first: 256, 72%, 46%;  /*Violet blue*/
+    --clr-bg-circle-second: 241, 72%, 46%;/*Persian blue*/
+    --gradient-to-transparent: linear-gradient(
+        hsl(var(--clr-bg-circle-first)),
+        hsl(var(--clr-bg-circle-second), 0));
+  
+    --clr-neutral-white: 0, 0%, 100%;    /*White*/
+    --clr-neutral-pale: 221, 100%, 96%; /*Pale blue*/
+    --clr-neutral-lavander: 241, 100%, 89%; /*Light lavander*/
+    --clr-neutral-grey: 224, 30%, 27%;  /*Dark grey blue*/
+  
+    --font-family-default: 'HankenGrotesk', sans-serif;
+  }
+
+*, ::before, ::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+svg{
+    width: 100%;
+    display: block;
+}
+
+body{
+    font-family: var(--font-family-default);
+    color: hsl(var(--clr-neutral-white), 0.7);
+    font-size: 1rem;
+}
+
+.container_title{
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+button{
+    font-family: var(--font-family-default);
+    line-height: 1;
+    background: #303B59;
+    border-radius: 8rem;
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: hsl(var(--clr-neutral-white));
+}
+
+button:hover,
+button:focus-visible{
+    background: var(--gradient-primary);
+}
+
+.grid-cont{
+    display: grid;
+    align-content: start;
+    gap: 1rem;
+}
+
+.grid-cont[data-large="large"]{
+    gap: 1.75rem;
+}
+
+.main_container{
+    max-height: 32rem;
+    max-width: 46rem;
+}
+
+.left_container{
+    background: var(--gradient-primary);
+    text-align: center;
+    padding: 2.5rem;
+    border-radius: 0 0 2rem 2rem;
+}
+
+.right_container{
+    color: #303B59;
+}
+
+.circle_container{
+    width: 8.75rem;
+    margin-inline: auto;
+    border-radius: 50%;
+    background: var(--gradient-to-transparent);
+    aspect-ratio: 1/1;
+    display: grid;
+    place-content: center;
+}
+
+.circle_container span{
+    display: block;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: hsl(var(--clr-neutral-white));
+}
+
+.left_container_subtitle{
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: hsl(var(--clr-neutral-white));    
+}
+
+.right_container{
+    padding: 1.5rem 2rem 1.875rem;
+}
+
+.right_container_line{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: hsl(var(--item-color), 0.1);
+}
+
+.flex-cont{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.right_line_title{
+    color: hsl(var(--item-color));
+}
+
+.right_container_line[data-color="clr-1"]{
+    --item-color: var(--clr-line-1);
+}
+
+.right_container_line[data-color="clr-2"]{
+    --item-color: var(--clr-line-2);
+}
+
+.right_container_line[data-color="clr-3"]{
+    --item-color: var(--clr-line-3);
+}
+
+.right_container_line[data-color="clr-4"]{
+    --item-color: var(--clr-line-4);
+}
+
+.line_score span{   
+    opacity: 0.5;
+}
+
+.line_score{
+    font-weight: 700;
+}
+
+#json_data{
+    opacity: 1;
+}
+
+@media (min-width: 37.5rem) {
+    body{
+        font-size: 1.125rem;
+        min-height: 100vh;
+        display: grid;
+        place-items: center; 
+    }
+    .container_title{
+        font-size: 1.5rem;
+    }
+    .main_container{
+        border-radius: 2rem;
+        grid-template-columns: 1fr 1fr;
+        overflow: hidden;
+        box-shadow: 0 1.875rem 3.75rem rgba(61, 108, 236, 0.15);
+    }
+    .left_container{
+        border-radius: 2rem;
+        padding: 2.375rem 3.375rem 3.4375rem;
+    }
+    .circle_container{
+        width: 12rem;
+    }
+    .circle_container span{
+        font-size: 4.5rem;
+    }
+    .left_container_subtitle{
+        font-size: 2rem;
+    }
+    .right_container{
+        padding: 2.375rem 2.5rem 2.875rem;
+    }
+}
